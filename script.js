@@ -2609,10 +2609,6 @@ function cargarEventoDestacado() {
 
    console.log("Estado de la cantina cargado");
 
-/* =====================================================
-   ESTADO ABIERTO / CERRADO
-===================================================== */
-
 function actualizarEstadoCantina() {
 
     const contenedor =
@@ -2634,36 +2630,81 @@ function actualizarEstadoCantina() {
             "estadoHorario"
         );
 
+
     const ahora =
         new Date();
 
     const dia =
         ahora.getDay();
 
+    const hora =
+        ahora.getHours();
+
     const minutos =
         ahora.getHours() * 60 +
         ahora.getMinutes();
 
+
     let abierto = false;
 
-    let cierre = "22:00 hs";
+    let cierre =
+        "22:00 hs";
 
-    if (dia >= 1 && dia <= 4) {
+
+    // Lunes a jueves
+    if (
+        dia >= 1 &&
+        dia <= 4
+    ) {
 
         abierto =
-            minutos >= 9 * 60 &&
-            minutos < 22 * 60;
+            minutos >= 540 &&
+            minutos < 1320;
 
-        cierre = "22:00 hs";
+        cierre =
+            "22:00 hs";
+
+    }
+
+    // Viernes a domingo
+    else {
+
+        abierto =
+            minutos >= 540 &&
+            minutos < 1440;
+
+        cierre =
+            "00:00 hs";
+
+    }
+
+
+    let saludo = "";
+
+
+    if (
+        hora >= 5 &&
+        hora < 12
+    ) {
+
+        saludo =
+            "Buenos días";
+
+    } else if (
+        hora >= 12 &&
+        hora < 19
+    ) {
+
+        saludo =
+            "Buenas tardes";
 
     } else {
 
-        abierto =
-            minutos >= 9 * 60;
-
-        cierre = "00:00 hs";
+        saludo =
+            "Buenas noches";
 
     }
+
 
     if (abierto) {
 
@@ -2671,11 +2712,14 @@ function actualizarEstadoCantina() {
             "cerrado"
         );
 
+
         titulo.textContent =
-            "ABIERTO AHORA";
+            `${saludo}, estamos abiertos`;
+
 
         horario.textContent =
-            `Hasta las ${cierre}`;
+            `Cerramos a las ${cierre}`;
+
 
     } else {
 
@@ -2683,11 +2727,26 @@ function actualizarEstadoCantina() {
             "cerrado"
         );
 
-        titulo.textContent =
-            "CERRADO";
 
-        horario.textContent =
-            "Abrimos a las 09:00 hs";
+        titulo.textContent =
+            saludo;
+
+
+        const abreHoy =
+            minutos < 540;
+
+
+        if (abreHoy) {
+
+            horario.textContent =
+                "Abrimos hoy a las 09:00 hs";
+
+        } else {
+
+            horario.textContent =
+                "Abrimos mañana a las 09:00 hs";
+
+        }
 
     }
 
