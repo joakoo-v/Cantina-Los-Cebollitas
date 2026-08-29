@@ -2606,3 +2606,101 @@ function cargarEventoDestacado() {
 
     }
 }
+
+/* =====================================================
+   ESTADO ABIERTO / CERRADO
+===================================================== */
+
+function actualizarEstadoCantina() {
+
+    const contenedor =
+        document.getElementById(
+            "estadoCantina"
+        );
+
+    if (!contenedor) {
+        return;
+    }
+
+    const titulo =
+        document.getElementById(
+            "estadoTitulo"
+        );
+
+    const horario =
+        document.getElementById(
+            "estadoHorario"
+        );
+
+    const ahora =
+        new Date();
+
+    const dia =
+        ahora.getDay();
+
+    const minutos =
+        ahora.getHours() * 60 +
+        ahora.getMinutes();
+
+    let abierto = false;
+
+    let cierre = "22:00 hs";
+
+    if (dia >= 1 && dia <= 4) {
+
+        abierto =
+            minutos >= 9 * 60 &&
+            minutos < 22 * 60;
+
+        cierre = "22:00 hs";
+
+    } else {
+
+        abierto =
+            minutos >= 9 * 60;
+
+        cierre = "00:00 hs";
+
+    }
+
+    if (abierto) {
+
+        contenedor.classList.remove(
+            "cerrado"
+        );
+
+        titulo.textContent =
+            "ABIERTO AHORA";
+
+        horario.textContent =
+            `Hasta las ${cierre}`;
+
+    } else {
+
+        contenedor.classList.add(
+            "cerrado"
+        );
+
+        titulo.textContent =
+            "CERRADO";
+
+        horario.textContent =
+            "Abrimos a las 09:00 hs";
+
+    }
+
+}
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        actualizarEstadoCantina();
+
+        setInterval(
+            actualizarEstadoCantina,
+            60000
+        );
+
+    }
+);
