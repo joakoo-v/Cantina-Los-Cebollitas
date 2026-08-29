@@ -2607,6 +2607,8 @@ function cargarEventoDestacado() {
     }
 }
 
+   console.log("Estado de la cantina cargado");
+
 /* =====================================================
    ESTADO ABIERTO / CERRADO
 ===================================================== */
