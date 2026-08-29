@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Panel de administración de Cantina Los Cebollitas."
+    >
+
+    <meta name="theme-color" content="#0b0b0d">
+
+    <title>Admin | Cantina Los Cebollitas</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="./admin.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         LOGIN
+    ====================================================== -->
+
+    <section id="login" class="login-screen">
+
+        <div class="login-background" aria-hidden="true">
+            <div class="login-grid"></div>
+            <div class="login-glow login-glow-one"></div>
+            <div class="login-glow login-glow-two"></div>
+        </div>
+
+        <div class="login-card">
+
+            <div class="login-brand">
+
+                <div class="login-logo">
+                    <img
+                        src="./imagenes/escudo.png"
+                        alt="Escudo de Los Cebollitas"
+                    >
+                </div>
+
+                <div class="login-brand-text">
+                    <strong>CANTINA LOS CEBOLLITAS</strong>
+                    <span>ARGENTINOS JUNIORS</span>
+                </div>
+
+            </div>
+
+            <div class="login-kicker">
+                <span></span>
+                PANEL DE ENCARGADA
+                <span></span>
+            </div>
+
+            <h1>
+                Iniciá sesión.<br>
+                <em>Controlá el buffet.</em>
+            </h1>
+
+            <p class="login-description">
+                Creado únicamente para las encargadas de la Cantina
+                "Los Cebollitas".
+            </p>
+
+            <form id="formLogin" class="login-form" novalidate>
+
+                <div class="field">
+                    <label for="usuario">USUARIO</label>
+
+                    <div class="input-box">
+                        <span class="input-symbol">◎</span>
+
+                        <input
+                            type="text"
+                            id="usuario"
+                            placeholder="Ingresá tu usuario"
+                            autocomplete="username"
+                            maxlength="50"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="contrasena">CONTRASEÑA</label>
+
+                    <div class="input-box">
+                        <span class="input-symbol">◆</span>
+
+                        <input
+                            type="password"
+                            id="contrasena"
+                            placeholder="Ingresá tu contraseña"
+                            autocomplete="current-password"
+                            maxlength="100"
+                            required
+                        >
+
+                        <button
+                            id="togglePassword"
+                            class="password-toggle"
+                            type="button"
+                            aria-label="Mostrar contraseña"
+                            aria-pressed="false"
+                        >
+                            ◉
+                        </button>
+                    </div>
+                </div>
+
+                <p
+                    id="errorLogin"
+                    class="login-error"
+                    role="alert"
+                    aria-live="assertive"
+                ></p>
+
+                <button
+                    type="submit"
+                    class="login-submit"
+                >
+                    <span>INGRESAR</span>
+                    <strong>↗</strong>
+                </button>
+
+            </form>
+
+            <div class="login-footer">
+
+                <span>
+                    <i></i>
+                    EN LINEA
+                </span>
+
+                <small>
+                    Cantina Los Cebollitas
+                </small>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PANEL
+    ====================================================== -->
+
+    <section id="panel" class="admin-panel hidden">
+
+        <!-- MOBILE HEADER -->
+
+        <header class="mobile-header">
+
+            <button
+                id="mobileMenuButton"
+                class="mobile-menu-button"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="mobile-brand">
+                <img
+                    src="./imagenes/escudo.png"
+                    alt="Los Cebollitas"
+                >
+
+                <div>
+                    <strong>LOS CEBOLLITAS</strong>
+                    <span>ADMIN</span>
+                </div>
+            </div>
+
+            <div class="mobile-status"></div>
+
+        </header>
+
+
+        <!-- OVERLAY MOBILE -->
+
+        <div
+            id="sidebarOverlay"
+            class="sidebar-overlay"
+            aria-hidden="true"
+        ></div>
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside id="sidebar" class="sidebar">
+
+            <div class="sidebar-brand">
+
+                <div class="sidebar-logo">
+                    <img
+                        src="./imagenes/escudo.png"
+                        alt="Escudo de Los Cebollitas"
+                    >
+                </div>
+
+                <div class="sidebar-brand-text">
+                    <strong>LOS CEBOLLITAS</strong>
+                            <strong id="nombreUsuario">
+                </div>
+
+        <!-- =================================================
+             PRUEBAAAAAAAAAAAAAAA
+        ================================================== -->
+
+            </div>
+
+            <div class="sidebar-panel-label">
+                <span>PANEL</span>
+                <strong>ARGENTINOS JUNIORS</strong>
+            </div>
+
+            <div class="sidebar-line"></div>
+
+
+            <nav
+                class="sidebar-nav"
+                aria-label="Navegación del administrador"
+            >
+
+                <button
+                    class="nav-item active"
+                    data-section="dashboard"
+                    type="button"
+                >
+                    <span class="nav-icon">⌂</span>
+                    <span class="nav-text">Dashboard</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-section="resenas"
+                    type="button"
+                >
+                    <span class="nav-icon">★</span>
+                    <span class="nav-text">Reseñas</span>
+                    <b
+                        id="contadorResenas"
+                        class="nav-count"
+                    >0</b>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-section="carta"
+                    type="button"
+                >
+                    <span class="nav-icon">☷</span>
+                    <span class="nav-text">Carta digital</span>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-section="eventos"
+                    type="button"
+                >
+                    <span class="nav-icon">⚽</span>
+                    <span class="nav-text">Eventos</span>
+                    <b
+                        id="contadorEventosMenu"
+                        class="nav-count"
+                    >0</b>
+                </button>
+
+                <button
+                    class="nav-item"
+                    data-section="reservas"
+                    type="button"
+                >
+                    <span class="nav-icon">◷</span>
+                    <span class="nav-text">Reservas</span>
+                </button>
+
+            </nav>
+
+
+            <div class="sidebar-sync">
+
+                <div class="sync-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <span>ESTADO DEL SISTEMA</span>
+                    <strong>Sincronizado</strong>
+                    <small>
+                        Cambios guardados localmente.
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="sidebar-bottom">
+
+                <button
+                    id="botonRestaurante"
+                    class="sidebar-action"
+                    type="button"
+                >
+                    <span>↗</span>
+                    VER RESTAURANTE
+                </button>
+
+                <button
+                    id="botonLogout"
+                    class="sidebar-action logout"
+                    type="button"
+                >
+                    <span>⇥</span>
+                    CERRAR SESIÓN
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             CONTENIDO
+        ================================================== -->
+
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <div class="topbar-title">
+
+                    <span id="breadcrumb">
+                        LOS CEBOLLITAS / PANEL
+                    </span>
+
+                    <h2 id="pageTitle">
+                        Dashboard
+                    </h2>
+
+                </div>
+
+                <div class="topbar-right">
+
+                    <div class="system-status">
+                        <i></i>
+                        SISTEMA ACTIVO
+                    </div>
+
+                    <div class="admin-profile">
+
+                        <div
+                            id="avatarUsuario"
+                            class="profile-avatar"
+                        >
+                            A
+                        </div>
+
+                        <div class="profile-data">
+                            <strong id="usuarioHeader">
+                                Administrador
+                            </strong>
+
+                            <span>
+                                Administrador
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =================================================
+                 DASHBOARD
+            ================================================== -->
+
+            <section
+                id="dashboard"
+                class="admin-section active"
+            >
+
+                <div class="dashboard-hero">
+
+                    <div class="hero-content">
+
+                        <div class="hero-label">
+                            <span></span>
+                            PANEL DE ADMINISTRADOR
+                        </div>
+
+                        <h1>
+                            Administrá el restaurante de
+                            <strong id="nombreUsuario">
+                              Argentinos Juniors
+                            </strong>.
+                        </h1>
+
+                        <p>
+                            Tenés todo el restaurante en tus manos.
+                            En esta página podés administrar la carta, promocionar partidos,
+                            eventos y responder las reseñas de los clientes.
+                        </p>
+
+                        <div class="hero-actions">
+
+                            <button
+                                id="accesoCarta"
+                                class="btn btn-primary"
+                                type="button"
+                            >
+                                <span>＋</span>
+                                EDITAR LA CARTA
+                            </button>
+
+                            <button
+                                id="accesoEvento"
+                                class="btn btn-outline"
+                                type="button"
+                            >
+                                <span>⚽</span>
+                                CREAR UN EVENTO
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="hero-visual" aria-hidden="true">
+
+                        <div class="hero-ring ring-one"></div>
+                        <div class="hero-ring ring-two"></div>
+
+                        <div class="hero-glow"></div>
+
+                        <img
+                            src="./imagenes/escudo.png"
+                            alt=""
+                        >
+
+                        <span>AJ</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ESTADÍSTICAS -->
+
+                <div class="stats-grid">
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon red">
+                            ★
+                        </div>
+
+                        <div class="stat-info">
+                            <span>RESEÑAS</span>
+                            <strong id="cantidadResenas">0</strong>
+                            <small>Opiniones recibidas</small>
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon gold">
+                            ☷
+                        </div>
+
+                        <div class="stat-info">
+                            <span>PLATOS</span>
+                            <strong id="cantidadPlatos">0</strong>
+                            <small>En la carta</small>
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon red">
+                            ⚽
+                        </div>
+
+                        <div class="stat-info">
+                            <span>EVENTOS</span>
+                            <strong id="cantidadEventos">0</strong>
+                            <small>Publicaciones activas</small>
+                        </div>
+
+                    </article>
+
+
+                    <article class="stat-card">
+
+                        <div class="stat-icon gold">
+                            ◷
+                        </div>
+
+                        <div class="stat-info">
+                            <span>RESERVAS</span>
+                            <strong id="cantidadReservas">0</strong>
+                            <small>Registradas</small>
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- DASHBOARD CARDS -->
+
+                <div class="dashboard-grid">
+
+                    <article class="card activity-card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <span>ACTIVIDAD RECIENTE</span>
+                                <h3>Últimas reseñas</h3>
+                            </div>
+
+                            <button
+                                id="verResenas"
+                                class="text-button"
+                                type="button"
+                            >
+                                VER TODAS →
+                            </button>
+
+                        </div>
+
+                        <div id="ultimasResenas">
+                            <div class="empty-mini">
+                                Todavía no hay reseñas.
+                            </div>
+                        </div>
+
+                    </article>
+
+
+                    <article class="card quick-card">
+
+                        <div class="quick-heading">
+                            <div class="quick-icon">⚡</div>
+
+                            <span>ACCIONES RÁPIDAS</span>
+                        </div>
+
+                        <h3>
+                            Cada día,
+                            <em>más grandes.</em>
+                        </h3>
+
+                        <p>
+                            Cuidado, todo lo que gestiones desde acá se
+                            puede ver en la página pública.
+                        </p>
+
+                        <button
+                            class="quick-action"
+                            data-go="resenas"
+                            type="button"
+                        >
+                            RESPONDER A LOS CLIENTES
+                            <b>→</b>
+                        </button>
+
+                        <button
+                            class="quick-action"
+                            data-go="carta"
+                            type="button"
+                        >
+                            ACTUALIZAR LA CARTA
+                            <b>→</b>
+                        </button>
+
+                        <button
+                            class="quick-action"
+                            data-go="eventos"
+                            type="button"
+                        >
+                            PROMOCIONAR UN EVENTO
+                            <b>→</b>
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RESEÑAS
+            ================================================== -->
+
+            <section
+                id="resenas"
+                class="admin-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+                        <span>OPINIONES DE LOS CLIENTES</span>
+
+                        <h1>Reseñas</h1>
+
+                        <p>
+                            Leé y respondé a los clientes. También
+                            podés eliminar sus reseñas.
+                        </p>
+                    </div>
+
+                    <div class="section-counter">
+                        <strong id="contadorResenasGrande">0</strong>
+                        <span>opiniones</span>
+                    </div>
+
+                </div>
+
+
+                <div class="toolbar">
+
+                    <div class="search-box">
+                        <span>⌕</span>
+
+                        <input
+                            id="buscarResenas"
+                            type="search"
+                            placeholder="Buscar por nombre o comentario."
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <button
+                        id="limpiarBusquedaResenas"
+                        class="toolbar-button"
+                        type="button"
+                    >
+                        BORRAR
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="adminListaResenas"
+                    class="reviews-list"
+                ></div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CARTA
+            ================================================== -->
+
+            <section
+                id="carta"
+                class="admin-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+                        <span>RESTAURANTE</span>
+
+                        <h1>CARTA DIGITAL</h1>
+
+                        <p>
+                            Organizá las categorías y los platos
+                            de la carta, indicando el nombre, precio y su descripción.
+                        </p>
+                    </div>
+
+                    <div class="section-counter">
+                        <strong id="contadorPlatosGrande">0</strong>
+                        <span>platos</span>
+                    </div>
+
+                </div>
+
+
+                <div class="editor-layout">
+
+                    <!-- FORMULARIO PLATO -->
+
+                    <article class="card editor-card">
+
+                        <div class="editor-badge">
+                            <span id="modoPlato">NUEVO PLATO</span>
+                            <strong>01</strong>
+                        </div>
+
+                        <div class="card-header editor-header">
+
+                            <div>
+                                <span>CARTA DIGITAL</span>
+
+                                <h3 id="tituloEditorPlato">
+                                    Agregar nuevo plato
+                                </h3>
+                            </div>
+
+                        </div>
+
+
+                        <form id="formPlato" novalidate>
+
+                            <input
+                                type="hidden"
+                                id="platoEditando"
+                                value=""
+                            >
+
+                            <div class="field">
+
+                                <label for="nombrePlato">
+                                    NOMBRE DEL PLATO
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="nombrePlato"
+                                    placeholder="Ej: Milanesa Bichi Borghi"
+                                    maxlength="80"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="two-columns">
+
+                                <div class="field">
+
+                                    <label for="precioPlato">
+                                        PRECIO
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="precioPlato"
+                                        placeholder="$ 12.000"
+                                        maxlength="30"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="categoriaPlato">
+                                        CATEGORÍA
+                                    </label>
+
+                                    <select id="categoriaPlato"></select>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="field">
+
+                                <label for="descripcionPlato">
+                                    DESCRIPCIÓN
+                                </label>
+
+                                <textarea
+                                    id="descripcionPlato"
+                                    rows="4"
+                                    placeholder="Describí brevemente el plato/bebida."
+                                    maxlength="260"
+                                    required
+                                ></textarea>
+
+                                <div class="character-counter">
+                                    <span id="contadorDescripcionPlato">0</span>/260
+                                </div>
+
+                            </div>
+
+
+                            <div class="field">
+
+                                <label for="imagenPlato">
+                                    IMAGEN / URL
+                                    <span>OPCIONAL</span>
+                                </label>
+
+                                <input
+                                    type="url"
+                                    id="imagenPlato"
+                                    placeholder="https://..."
+                                >
+
+                                <small>
+                                    Usar imagenes es totalmente opcional.
+                                </small>
+
+                            </div>
+
+
+                            <div
+                                id="previewImagenPlato"
+                                class="image-preview hidden"
+                            ></div>
+
+
+                            <div class="form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary"
+                                >
+                                    <span id="textoGuardarPlato">
+                                        GUARDAR PLATO
+                                    </span>
+                                    <strong>↗</strong>
+                                </button>
+
+                                <button
+                                    id="cancelarEdicionPlato"
+                                    type="button"
+                                    class="btn btn-secondary"
+                                >
+                                    LIMPIAR
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </article>
+
+
+                    <!-- LISTADO -->
+
+                    <article class="card list-card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <span>CARTA ACTUAL</span>
+                                <h3>Platos publicados</h3>
+                            </div>
+
+                            <button
+                                id="crearCategoriaButton"
+                                class="small-primary"
+                                type="button"
+                            >
+                                ＋ CATEGORÍA
+                            </button>
+
+                        </div>
+
+
+                        <div class="list-toolbar">
+
+                            <div class="search-box compact">
+                                <span>⌕</span>
+
+                                <input
+                                    id="buscarPlatos"
+                                    type="search"
+                                    placeholder="Buscar plato..."
+                                    autocomplete="off"
+                                >
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="listaPlatosAdmin"
+                            class="menu-admin-list"
+                        ></div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 EVENTOS
+            ================================================== -->
+
+            <section
+                id="eventos"
+                class="admin-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+                        <span>ARGENTINOS JUNIORS</span>
+
+                        <h1>Eventos</h1>
+
+                        <p>
+                            Una sección donde vas a poder crear eventos para que
+                            luego se vean en la página principal. Podés promocionar
+                            los partidos de Argentinos Juniors de visitante, noches de música, etc.
+                        </p>
+                    </div>
+
+                    <div class="section-counter">
+                        <strong id="contadorEventosGrande">0</strong>
+                        <span>activos</span>
+                    </div>
+
+                </div>
+
+
+                <div class="editor-layout">
+
+                    <!-- CREAR EVENTO -->
+
+                    <article class="card editor-card">
+
+                        <div class="editor-badge">
+                            <span id="modoEvento">NUEVO EVENTO</span>
+                            <strong>ARGENTINOS JUNIORS</strong>
+                        </div>
+
+                        <div class="card-header editor-header">
+
+                            <div>
+                                <span>PUBLICACIÓN DESTACADA</span>
+
+                                <h3 id="tituloEditorEvento">
+                                    Crear publicación
+                                </h3>
+                            </div>
+
+                        </div>
+
+
+                        <form id="formEvento" novalidate>
+
+                            <input
+                                type="hidden"
+                                id="eventoEditando"
+                                value=""
+                            >
+
+                            <div class="field">
+
+                                <label for="tituloEvento">
+                                    TÍTULO PRINCIPAL
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="tituloEvento"
+                                    placeholder="Ej: ¡Noche de ROCK!"
+                                    maxlength="90"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="field">
+
+                                <label for="partidoEvento">
+                                    PARTIDO / EVENTO
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="partidoEvento"
+                                    placeholder="Ej. Argentinos Juniors vs. Platense"
+                                    maxlength="100"
+                                >
+
+                            </div>
+
+
+                            <div class="two-columns">
+
+                                <div class="field">
+
+                                    <label for="fechaEvento">
+                                        FECHA
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="fechaEvento"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="horaEvento">
+                                        HORA
+                                    </label>
+
+                                    <input
+                                        type="time"
+                                        id="horaEvento"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="field">
+
+                                <label for="descripcionEvento">
+                                    DESCRIPCIÓN
+                                </label>
+
+                                <textarea
+                                    id="descripcionEvento"
+                                    rows="4"
+                                    placeholder="Contale a los clientes lo que habrá en el evento"
+                                    maxlength="360"
+                                    required
+                                ></textarea>
+
+                                <div class="character-counter">
+                                    <span id="contadorDescripcionEvento">0</span>/360
+                                </div>
+
+                            </div>
+
+
+                            <div class="field">
+
+                                <label for="imagenEvento">
+                                    IMAGEN / URL
+                                    <span>PRÓXIMAMENTE</span>
+                                </label>
+
+                                <input
+                                    type="url"
+                                    id="imagenEvento"
+                                    placeholder="https://..."
+                                >
+
+                            </div>
+
+
+                            <div
+                                id="previewImagenEvento"
+                                class="image-preview hidden"
+                            ></div>
+
+
+                            <div class="two-columns">
+
+                                <div class="field">
+
+                                    <label for="botonTextoEvento">
+                                        TEXTO DEL BOTÓN
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="botonTextoEvento"
+                                        value="RESERVAR POR WHATSAPP"
+                                        maxlength="50"
+                                    >
+
+                                </div>
+
+
+                                <div class="field">
+
+                                    <label for="botonLinkEvento">
+                                        LINK DEL BOTÓN
+                                        <span>OPCIONAL</span>
+                                    </label>
+
+                                    <input
+                                        type="url"
+                                        id="botonLinkEvento"
+                                        placeholder="https://wa.me/..."
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="publish-toggle">
+
+                                <span class="toggle-text">
+
+                                    <strong>
+                                        Publicar evento inmediatamente
+                                    </strong>
+
+                                    <small>
+                                        Si está activo, va a aparecer en la página del restaurante.
+                                    </small>
+
+                                </span>
+
+                                <input
+                                    type="checkbox"
+                                    id="activoEvento"
+                                    checked
+                                >
+
+                                <i></i>
+
+                            </label>
+
+
+                            <div class="form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary"
+                                >
+                                    <span id="textoGuardarEvento">
+                                        PUBLICAR
+                                    </span>
+                                    <strong>↗</strong>
+                                </button>
+
+                                <button
+                                    id="cancelarEdicionEvento"
+                                    type="button"
+                                    class="btn btn-secondary"
+                                >
+                                    BORRAR TODO
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </article>
+
+
+                    <!-- EVENTOS PUBLICADOS -->
+
+                    <article class="card list-card">
+
+                        <div class="card-header">
+
+                            <div>
+                                <span>PUBLICACIONES</span>
+                                <h3>Eventos</h3>
+                            </div>
+
+                            <span class="live-badge">
+                                <i></i>
+                                EN LINEA
+                            </span>
+
+                        </div>
+
+
+                        <div class="list-toolbar">
+
+                            <div class="search-box compact">
+                                <span>⌕</span>
+
+                                <input
+                                    id="buscarEventos"
+                                    type="search"
+                                    placeholder="Buscar evento"
+                                    autocomplete="off"
+                                >
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="listaEventosAdmin"
+                            class="events-admin-list"
+                        ></div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 RESERVAS
+            ================================================== -->
+
+            <section
+                id="reservas"
+                class="admin-section"
+            >
+
+                <div class="section-heading">
+
+                    <div>
+                        <span>ORGANIZACIÓN</span>
+
+                        <h1>Reservas</h1>
+
+                        <p>
+                            Próximamente -> sección completa para que los clientes puedan reservar.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <article class="reservation-hero">
+
+                    <div class="reservation-decoration">
+                        ◷
+                    </div>
+
+                    <span>SISTEMA DE RESERVAS</span>
+
+                    <h2>
+                        Reservas únicamente por WhatsApp
+                    </h2>
+
+                    <p>
+                        Actualmente la página está sincronizada con WhatsApp
+                        como canal de comunicación para las reservas. Esta sección está 
+                        preparada para que próximamente se haga una implementación de
+                        reservas internas. 
+                    </p>
+
+                    <div class="reservation-actions">
+
+                        <a
+                            href="https://wa.me/5491171071742"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn btn-primary"
+                        >
+                            💬 ABRIR WHATSAPP
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <div class="card reservation-list-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <span>PRÓXIMAMENTE</span>
+                            <h3>Reservas hechas</h3>
+                        </div>
+
+                        <span
+                            id="contadorReservasLista"
+                            class="reservation-count"
+                        >
+                            0
+                        </span>
+
+                    </div>
+
+                    <div
+                        id="listaReservasAdmin"
+                        class="reservations-list"
+                    ></div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </section>
+
+
+    <!-- =====================================================
+         MODAL RESEÑA
+    ====================================================== -->
+
+    <div
+        id="modalResponder"
+        class="modal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalResponderTitulo"
+        >
+
+            <button
+                class="modal-close"
+                data-close-modal="modalResponder"
+                type="button"
+                aria-label="Cerrar"
+            >
+                ×
+            </button>
+
+            <div class="modal-icon gold">
+                ↩
+            </div>
+
+            <span class="modal-kicker">
+                RESPUESTA DEL ENCARGAD@
+            </span>
+
+            <h2 id="modalResponderTitulo">
+                Responder a
+                <strong id="nombreClienteRespuesta">
+                    Cliente
+                </strong>
+            </h2>
+
+            <div class="review-preview">
+
+                <div id="previewEstrellas">
+                    ★★★★★
+                </div>
+
+                <p id="previewComentario">
+                    ...
+                </p>
+
+            </div>
+
+            <form id="formRespuesta">
+
+                <input
+                    type="hidden"
+                    id="resenaAResponder"
+                    value=""
+                >
+
+                <div class="field">
+
+                    <label for="textoRespuesta">
+                        ¿QUÉ LE VAS A DECIR AL CLIENTE?
+                    </label>
+
+                    <textarea
+                        id="textoRespuesta"
+                        rows="5"
+                        maxlength="500"
+                        placeholder="Escribí una respuesta para el cliente."
+                        required
+                    ></textarea>
+
+                    <div class="character-counter">
+                        <span id="contadorRespuesta">0</span>/500
+                    </div>
+
+                </div>
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-close-modal="modalResponder"
+                    >
+                        CANCELAR
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        PUBLICAR RESPUESTA
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL ELIMINAR
+    ====================================================== -->
+
+    <div
+        id="modalEliminar"
+        class="modal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-card danger-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalEliminarTitulo"
+        >
+
+            <button
+                class="modal-close"
+                data-close-modal="modalEliminar"
+                type="button"
+                aria-label="Cerrar"
+            >
+                ×
+            </button>
+
+            <div class="modal-icon danger">
+                !
+            </div>
+
+            <span class="modal-kicker danger-text">
+                ACCIÓN IRREVERSIBLE
+            </span>
+
+            <h2 id="modalEliminarTitulo">
+                ¿Eliminar reseña?
+            </h2>
+
+            <p>
+                Esta reseña va a ser eliminada del almacenamiento
+                y no va a aparecer más en la página principal.
+            </p>
+
+            <div class="modal-actions">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-close-modal="modalEliminar"
+                >
+                    CANCELAR
+                </button>
+
+                <button
+                    id="confirmarEliminar"
+                    type="button"
+                    class="btn btn-danger"
+                >
+                    ELIMINAR
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL CATEGORÍA
+    ====================================================== -->
+
+    <div
+        id="modalCategoria"
+        class="modal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalCategoriaTitulo"
+        >
+
+            <button
+                class="modal-close"
+                data-close-modal="modalCategoria"
+                type="button"
+                aria-label="Cerrar"
+            >
+                ×
+            </button>
+
+            <div class="modal-icon red">
+                ☷
+            </div>
+
+            <span class="modal-kicker">
+                ORGANIZACIÓN DE CARTA
+            </span>
+
+            <h2 id="modalCategoriaTitulo">
+                Nueva categoría
+            </h2>
+
+            <form id="formCategoria">
+
+                <input
+                    type="hidden"
+                    id="categoriaEditando"
+                    value=""
+                >
+
+                <div class="field">
+
+                    <label for="nombreCategoria">
+                        NOMBRE
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombreCategoria"
+                        placeholder="Ej. Entradas"
+                        maxlength="60"
+                        required
+                    >
+
+                </div>
+
+                <div class="field">
+
+                    <label for="descripcionCategoria">
+                        DESCRIPCIÓN
+                        <span>OPCIONAL</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="descripcionCategoria"
+                        placeholder="Para compartir y abrir el apetito."
+                        maxlength="120"
+                    >
+
+                </div>
+
+                <div class="field">
+
+                    <label for="iconoCategoria">
+                        ÍCONO
+                        <span>OPCIONAL</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="iconoCategoria"
+                        value="🍽️"
+                        maxlength="8"
+                    >
+
+                </div>
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-close-modal="modalCategoria"
+                    >
+                        CANCELAR
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        GUARDAR CATEGORÍA
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         NOTIFICACIONES
+    ====================================================== -->
+
+    <div
+        id="notificacionAdmin"
+        class="notification"
+        aria-live="polite"
+        aria-atomic="true"
+    ></div>
+
+
+    <script src="./admin.js"></script>
+
+</body>
+</html>

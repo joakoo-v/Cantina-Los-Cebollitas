@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Cantina Los Cebollitas - Comida, encuentros y pasión por Argentinos Juniors."
+    >
+
+    <title>Cantina Los Cebollitas | Argentinos Juniors</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="header" id="header">
+
+        <nav class="navbar">
+
+            <a
+                href="#inicio"
+                class="logo"
+                aria-label="Ir al inicio"
+            >
+                <img
+                    src="imagenes/escudo.png"
+                    alt="Escudo de Argentinos Juniors"
+                >
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="menuNavegacion"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div
+                class="menu"
+                id="menuNavegacion"
+            >
+                <a href="#inicio">INICIO</a>
+                <a href="#menu">MENÚ</a>
+                <a href="#reservar">RESERVAR</a>
+                <a href="#cantina">LA CANTINA</a>
+                <a href="#ubicacion">UBICACIÓN</a>
+                <a href="#resenas">RESEÑAS</a>
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================================
+         EVENTO DESTACADO
+    ========================================== -->
+
+    <aside
+        id="eventoDestacado"
+        class="evento-destacado"
+        aria-hidden="true"
+    >
+
+        <div class="evento-fondo"></div>
+
+        <div class="evento-contenido">
+
+            <button
+                id="cerrarEvento"
+                class="cerrar-evento"
+                type="button"
+                aria-label="Cerrar evento"
+            >
+                <span></span>
+                <span></span>
+            </button>
+
+            <span class="evento-etiqueta">
+                ⚽ EVENTO ESPECIAL
+            </span>
+
+            <h2 id="eventoTitulo">
+                ¡DÍA DE PARTIDO!
+            </h2>
+
+            <p id="eventoDescripcion">
+                Viví el partido junto a tus seres queridos.
+            </p>
+
+            <div class="evento-datos">
+
+                <span id="eventoFecha">
+                    📅 Próximamente
+                </span>
+
+                <span id="eventoHora">
+                    🕐 Horario a confirmar
+                </span>
+
+            </div>
+
+            <a
+                id="eventoBoton"
+                href="#reservar"
+                class="evento-reservar"
+            >
+                RESERVAR MESA
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================
+         HERO
+    ========================================== -->
+
+    <main>
+
+        <section
+            id="inicio"
+            class="hero"
+        >
+
+            <div class="hero-decoracion hero-decoracion-uno"></div>
+            <div class="hero-decoracion hero-decoracion-dos"></div>
+
+            <div class="hero-contenido">
+
+                <div class="etiqueta">
+                    ASOCIACIÓN ATLÉTICA ARGENTINOS JUNIORS
+                </div>
+
+                <h1>
+                    CANTINA
+                    <span>LOS CEBOLLITAS</span>
+                </h1>
+
+                <p class="descripcion">
+                    Un lugar para compartir una buena comida,
+                    encontrarse con amigos y vivir la pasión
+                    por nuestro querido club, Argentinos Juniors.
+                </p>
+
+                <div class="botones-inicio">
+
+                    <a
+                        href="#menu"
+                        class="boton boton-principal"
+                    >
+                        <span>🍽️</span>
+                        VER MENÚ
+                    </a>
+
+                    <a
+                        href="#reservar"
+                        class="boton boton-secundario"
+                    >
+                        <span>📞</span>
+                        RESERVAR MESA
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-detalle">
+
+                <span>CAMPEÓN DE AMÉRICA</span>
+
+                <div></div>
+
+                <span>EL SEMILLERO DEL MUNDO</span>
+
+            </div>
+
+            <a
+                href="#menu"
+                class="scroll-indicador"
+                aria-label="Bajar al menú"
+            >
+                <span></span>
+            </a>
+
+        </section>
+
+<section class="evento-seccion" id="eventos">
+
+    <div class="evento-seccion-fondo" id="eventoSeccionFondo"></div>
+    <div class="evento-seccion-overlay"></div>
+
+    <div class="evento-seccion-contenido">
+
+        <span class="evento-seccion-etiqueta" id="eventoSeccionEtiqueta">
+            ⚽ EVENTO ESPECIAL
+        </span>
+
+        <h2 id="eventoSeccionTitulo">
+            Cargando evento...
+        </h2>
+
+        <p class="evento-seccion-descripcion" id="eventoSeccionDescripcion">
+            Próximamente habrá un nuevo evento en nuestro restaurante.
+        </p>
+
+        <div class="evento-seccion-partido" id="eventoSeccionPartido">
+            —
+        </div>
+
+        <div class="evento-seccion-datos">
+
+            <div class="evento-seccion-dato">
+                <div class="evento-seccion-dato-icono">📅</div>
+
+                <div>
+                    <small>FECHA</small>
+                    <strong id="eventoSeccionFecha">-</strong>
+                </div>
+            </div>
+
+            <div class="evento-seccion-dato">
+                <div class="evento-seccion-dato-icono">🕒</div>
+
+                <div>
+                    <small>HORARIO</small>
+                    <strong id="eventoSeccionHora">-</strong>
+                </div>
+            </div>
+
+            <div class="evento-seccion-dato">
+                <div class="evento-seccion-dato-icono">📍</div>
+
+                <div>
+                    <small>LUGAR</small>
+                    <strong id="eventoSeccionLugar">
+                        Cantina del Club
+                    </strong>
+                </div>
+            </div>
+
+        </div>
+
+        <a
+            id="eventoSeccionBoton"
+            class="boton boton-principal evento-seccion-boton"
+            href="#reservar"
+        >
+            Reservar mesa
+        </a>
+
+    </div>
+
+</section>
+
+        <!-- =========================================
+             MENÚ
+        ========================================== -->
+
+        <section
+            id="menu"
+            class="seccion menu-seccion"
+        >
+
+            <div class="titulo-seccion">
+
+                <span>NUESTRA CARTA</span>
+
+                <h2>MENÚ</h2>
+
+                <p>
+                    Elegí una categoría para descubrir
+                    nuestras distintas variedades de platos y bebidas.
+                </p>
+
+            </div>
+
+            <div
+                id="menuDinamico"
+                class="menu-dinamico"
+            ></div>
+
+        </section>
+
+
+        <!-- =========================================
+             RESERVAR
+        ========================================== -->
+
+        <section
+            id="reservar"
+            class="seccion reservar-seccion"
+        >
+
+            <div class="reserva-decoracion"></div>
+
+            <div class="reserva-contenido">
+
+                <span>¿DÍA DE PARTIDO?</span>
+
+                <h2>RESERVÁ TU MESA</h2>
+
+                <p>
+                    Comunicate con nosotros para reservar
+                    tu lugar, especialmente en días de partido
+                    y eventos especiales.
+                </p>
+
+                <div class="reserva-acciones">
+
+                    <a
+                        href="https://wa.me/5491171071742"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="boton whatsapp"
+                    >
+                        <span>💬</span>
+                        RESERVAR POR WHATSAPP
+                    </a>
+
+                    <a
+                        href="tel:+5491171071742"
+                        class="telefono"
+                    >
+                        📞 +54 9 11 7107-1742
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             LA CANTINA
+        ========================================== -->
+
+        <section
+            id="cantina"
+            class="seccion cantina-seccion"
+        >
+
+            <div class="titulo-seccion">
+
+                <span>CONOCENOS</span>
+
+                <h2>CANTINA LOS CEBOLLITAS</h2>
+
+            </div>
+
+            <div class="cantina-grid">
+
+                <article class="cantina-tarjeta">
+
+                    <div class="numero">
+                        Nuestra casa, nuestra historia.
+                    </div>
+
+                    <h3>
+                        Los Cebollitas
+                    </h3>
+
+                    <p>
+                       Inaugurado el 31/10/2025 la Cantina "Los Cebollitas" es un espacio                                   pensado para compartir una buena comida, disfrutar con amigos y
+                       vivir la pasión por Argentinos Juniors.
+                       El establecimiento, está pensado para realizar distintos tipos de                        eventos con capacidad para más de 100 personas.  
+                    </p>
+
+                    <p>
+                        Nuestra carta reúne clásicos argentinos,
+                        especialidades de la casa y opciones
+                        para disfrutar antes, durante o después
+                        de un partido.
+                    </p>
+
+                    <p>
+                        ¿Argentinos Juniors juega de visitante?
+                          - Podés reservar tu mesa en la Cantina para poder vivirlo con pasión
+                            y a puro pulmón.
+                    </p> 
+                </article>
+
+                <div class="cantina-dato">
+
+                    <span class="dato-numero">AJ</span>
+
+                    <span class="dato-linea"></span>
+
+                    <strong>
+                        122 AÑOS
+                        <br>
+                        DE HISTORIA
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             UBICACIÓN
+        ========================================== -->
+
+        <section
+            id="ubicacion"
+            class="seccion ubicacion-seccion"
+        >
+
+            <div class="titulo-seccion">
+
+                <span>¿DÓNDE ESTAMOS?</span>
+
+                <h2>UBICACIÓN</h2>
+
+            </div>
+
+            <div class="ubicacion-tarjeta">
+
+                <div class="ubicacion-icono">
+                    📍
+                </div>
+
+                <div class="ubicacion-info">
+
+                    <span>
+                        ARGENTINOS JUNIORS
+                    </span>
+
+                    <h3>
+                        La Paternal
+                    </h3>
+
+                    <p>
+                        Buenos Aires, Argentina
+                    </p>
+
+                </div>
+
+                <a
+                    href="https://www.google.com/maps/place/Tronador+41,+C1427CRA+Cdad.+Aut%C3%B3noma+de+Buenos+Aires/@-34.5912043,-58.4753538,17z"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="boton boton-principal"
+                >
+                    📍 ABRIR GOOGLE MAPS
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             RESEÑAS
+        ========================================== -->
+
+        <section
+            id="resenas"
+            class="seccion resenas-seccion"
+        >
+
+            <div class="titulo-seccion">
+
+                <span>LO QUE DICEN NUESTROS CLIENTES</span>
+
+                <h2>RESEÑAS</h2>
+
+                <p>
+                    ¿Ya nos visitaste? Contanos cómo fue
+                    tu experiencia en la Cantina Los Cebollitas.
+                </p>
+
+            </div>
+
+            <div class="resena-formulario">
+
+                <div class="formulario-icono">
+                    ⭐
+                </div>
+
+                <h3>
+                    DEJÁ TU OPINIÓN
+                </h3>
+
+                <p class="formulario-descripcion">
+                    Tu opinión nos ayuda a seguir mejorando día a día.
+                </p>
+
+                <label
+                    class="campo-label"
+                    for="nombreResena"
+                >
+                    Nombre
+                </label>
+
+                <input
+                    type="text"
+                    id="nombreResena"
+                    placeholder="¿Cuál es tu nombre?"
+                    maxlength="30"
+                    autocomplete="name"
+                >
+
+                <label class="campo-label">
+                    Calificación
+                </label>
+
+                <div
+                    class="estrellas"
+                    id="estrellas"
+                    role="group"
+                    aria-label="Seleccionar calificación"
+                >
+
+                    <button
+                        type="button"
+                        data-estrellas="1"
+                        aria-label="1 estrella"
+                    >
+                        ★
+                    </button>
+
+                    <button
+                        type="button"
+                        data-estrellas="2"
+                        aria-label="2 estrellas"
+                    >
+                        ★
+                    </button>
+
+                    <button
+                        type="button"
+                        data-estrellas="3"
+                        aria-label="3 estrellas"
+                    >
+                        ★
+                    </button>
+
+                    <button
+                        type="button"
+                        data-estrellas="4"
+                        aria-label="4 estrellas"
+                    >
+                        ★
+                    </button>
+
+                    <button
+                        type="button"
+                        data-estrellas="5"
+                        aria-label="5 estrellas"
+                    >
+                        ★
+                    </button>
+
+                </div>
+
+                <label
+                    class="campo-label"
+                    for="textoResena"
+                >
+                    Tu opinión
+                </label>
+
+                <textarea
+                    id="textoResena"
+                    placeholder="Describinos tu experiencia..."
+                    maxlength="300"
+                ></textarea>
+
+                <div class="contador">
+                    <span id="contadorResena">0</span>/300
+                </div>
+
+                <button
+                    id="publicarResena"
+                    class="boton boton-principal boton-resena"
+                    type="button"
+                >
+                    PUBLICAR RESEÑA
+                </button>
+
+                <p
+                    id="mensajeResena"
+                    class="mensaje-resena"
+                    aria-live="polite"
+                ></p>
+
+            </div>
+
+            <div
+                id="listaResenas"
+                class="lista-resenas"
+            ></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="footer-contenido">
+
+            <div class="footer-marca">
+
+                <img
+                    src="imagenes/escudo.png"
+                    alt="Argentinos Juniors"
+                >
+
+                <strong>
+                    CANTINA LOS CEBOLLITAS
+                </strong>
+
+            </div>
+
+            <p>
+                Asociación Atlética Argentinos Juniors ❤️🤍
+            </p>
+
+            <div class="footer-linea"></div>
+
+            <p class="copyright">
+                Página realizada por @joakoo__v
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="./script.js" defer></script>
+
+</body>
+</html>
