@@ -12,9 +12,19 @@
 
 const ADMIN_CONFIG = Object.freeze({
 
-    usuario: "admin",
+    usuarios: [
 
-    contrasena: "admin123",
+        {
+            usuario: "Mariel",
+            contrasena: "20enero1970"
+        },
+
+        {
+            usuario: "Elizabeth",
+            contrasena: "luis2026"
+        }
+
+    ],
 
     sessionKey: "cebollitasAdminSesion",
 
@@ -40,7 +50,6 @@ const ADMIN_CONFIG = Object.freeze({
         "¡Muchas gracias por tu reseña y por visitarnos! Te esperamos nuevamente en Cantina Los Cebollitas."
 
 });
-
 
 /* =========================================================
    DATOS POR DEFECTO
@@ -624,12 +633,20 @@ function manejarLogin(event) {
             "errorLogin"
         );
 
-    if (
-        usuario.toLowerCase() !==
-        ADMIN_CONFIG.usuario.toLowerCase() ||
-        contrasena !==
-        ADMIN_CONFIG.contrasena
-    ) {
+    const usuarioValido =
+        ADMIN_CONFIG.usuarios.find(
+
+            cuenta =>
+
+                cuenta.usuario.toLowerCase() ===
+                usuario.toLowerCase() &&
+
+                cuenta.contrasena ===
+                contrasena
+
+        );
+
+    if (!usuarioValido) {
 
         if (error) {
 
@@ -666,7 +683,7 @@ function manejarLogin(event) {
 
     sessionStorage.setItem(
         ADMIN_CONFIG.userKey,
-        usuario
+        usuarioValido.usuario
     );
 
     if (error) {
@@ -840,7 +857,7 @@ function actualizarUsuario() {
         sessionStorage.getItem(
             ADMIN_CONFIG.userKey
         ) ||
-        ADMIN_CONFIG.usuario;
+        "Mariel";
 
     const nombre =
         usuario.charAt(0).toUpperCase() +
@@ -877,7 +894,6 @@ function actualizarUsuario() {
     }
 
 }
-
 
 /* =========================================================
    NAVEGACIÓN
