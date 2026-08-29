@@ -367,14 +367,14 @@ a {
     background:
         linear-gradient(
             90deg,
-            rgba(0, 0, 0, 0.92) 0%,
-            rgba(0, 0, 0, 0.76) 42%,
-            rgba(0, 0, 0, 0.42) 100%
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.45) 45%,
+            rgba(0, 0, 0, 0.15) 100%
         );
 }
 
 .evento-fondo.tiene-imagen {
-    opacity: 0.72;
+    opacity: 1;
     transform: scale(1);
 }
 
@@ -458,8 +458,8 @@ a {
     background:
         linear-gradient(
             90deg,
-            rgba(8, 8, 8, 0.72),
-            rgba(8, 8, 8, 0.35)
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.08)
         );
 }
 
