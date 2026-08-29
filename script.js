@@ -2706,3 +2706,5 @@ document.addEventListener(
 
     }
 );
+
+alert("JS funcionando");
