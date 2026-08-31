@@ -2821,22 +2821,32 @@ function crearPlatoAdminHTML(
 /* =========================================================
    EVENTOS — LECTURA
 ========================================================= */
+async function obtenerEventos() {
 
-function obtenerEventos() {
+    const { data, error } =
+        await supabase
+            .from("eventos")
+            .select("*")
+            .order("fecha", {
+                ascending: true
+            });
 
-    const datos =
-        leerStorage(
-            ADMIN_CONFIG.storage.eventos,
-            [],
-            ADMIN_CONFIG.legacyStorage.eventos
+    if (error) {
+
+        console.error(
+            "Error leyendo eventos:",
+            error
         );
 
-    return Array.isArray(datos)
-        ? normalizarEventos(datos)
-        : [];
+        return [];
+
+    }
+
+    return normalizarEventos(
+        data || []
+    );
 
 }
-
 
 function normalizarEventos(
     eventos
@@ -2924,7 +2934,7 @@ function normalizarEventos(
    GUARDAR EVENTO
 ========================================================= */
 
-function guardarEvento(event) {
+async function guardarEvento(event) {
 
     event.preventDefault();
 
@@ -3031,8 +3041,8 @@ function guardarEvento(event) {
     }
 
 
-    const eventos =
-        obtenerEventos();
+const eventos =
+    await obtenerEventos();
 
 
     const datos = {
@@ -3117,22 +3127,31 @@ function guardarEvento(event) {
 
     } else {
 
-        eventos.unshift({
+        const { error } =
+            await supabase
+                .from("eventos")
+                .insert([{
 
-            id:
-                generarId("evento"),
+                    ...datos,
 
-            ...datos,
+                    fechaCreacion:
+                        new Date().toISOString()
 
-            fechaCreacion:
-                new Date().toISOString()
+                }]);
 
-        });
+        if (error) {
 
-        guardarStorage(
-            ADMIN_CONFIG.storage.eventos,
-            eventos
-        );
+            console.error(error);
+
+            mostrarNotificacion(
+                "Error",
+                "No se pudo guardar el evento.",
+                "error"
+            );
+
+            return;
+
+        }
 
         limpiarFormularioEvento();
 
@@ -3151,7 +3170,6 @@ function guardarEvento(event) {
     actualizarTodo();
 
 }
-
 
 /* =========================================================
    EDITAR EVENTO
